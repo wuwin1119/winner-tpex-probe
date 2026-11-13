@@ -1,0 +1,2834 @@
+{
+  "schema_version": 1,
+  "source": "WINNER 上市股數雲端接續稽核.txt",
+  "scope": "TWSE nine electronic sectors / 471 symbols",
+  "note": "Progress metadata only; not historical share values; not proof of cloud ingestion.",
+  "stocks": [
+    {
+      "symbol": "1471",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "1582",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2059",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2301",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2302",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2303",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2305",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2308",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2312",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2313",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2314",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2316",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2317",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2321",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2323",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2324",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2327",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2328",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2329",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2330",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2331",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2332",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2337",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2338",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2340",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2342",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2344",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2345",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2347",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2349",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2351",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2352",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2353",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2354",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2355",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2356",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2357",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2359",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2360",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2362",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2363",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2364",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2365",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2367",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2368",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2369",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2373",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2374",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2375",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2376",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2377",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2379",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2380",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2382",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2383",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2385",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2387",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2388",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2390",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2392",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2393",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2395",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2397",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2399",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2401",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2402",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2404",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2405",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2406",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2408",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2409",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2412",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2413",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2414",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2415",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2417",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2419",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2420",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2421",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2423",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2424",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2425",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2426",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2427",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2428",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2429",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2430",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2431",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2432",
+      "rows": 839,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2433",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2434",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2436",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2438",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2439",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2440",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2441",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2444",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2449",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2450",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2451",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2453",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2454",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2455",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2457",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2458",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2459",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2460",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2461",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2462",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2464",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2465",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2466",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2467",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2468",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2471",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2472",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2474",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2476",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2477",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2478",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2480",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2481",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2482",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2483",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2484",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2485",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2486",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2488",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2489",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2491",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2492",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2493",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2495",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "2498",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3002",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3003",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3005",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3006",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3008",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3010",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3011",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3013",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3014",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3015",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3016",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3017",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3018",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3019",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3021",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3022",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3023",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3024",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3025",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3026",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3027",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3028",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3029",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3030",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3031",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3032",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3033",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3034",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3035",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3036",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3037",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3038",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3041",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3042",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3043",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3044",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3045",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3046",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3047",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3048",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3049",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3050",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3051",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3054",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3055",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3057",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3058",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3059",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3060",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3062",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3090",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3092",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3094",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3130",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3135",
+      "rows": 308,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3138",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3149",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3150",
+      "rows": 577,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3168",
+      "rows": 640,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3189",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3209",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3229",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3231",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3257",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3296",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3305",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3308",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3311",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3312",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3321",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3338",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3356",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3376",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3380",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3406",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3413",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3416",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3419",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3432",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3437",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3443",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3447",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3450",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3481",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3494",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3501",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3504",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3515",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3518",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3528",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3530",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3532",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3533",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3535",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3543",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3545",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3550",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3563",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3576",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3583",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3588",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3591",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3592",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3593",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3596",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3605",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3607",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3617",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3622",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3645",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3652",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3653",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3661",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3665",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3669",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3673",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3679",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3686",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3694",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3701",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3702",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3704",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3706",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3711",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3712",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3714",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "3715",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4545",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4585",
+      "rows": 271,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4588",
+      "rows": 673,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4904",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4906",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4912",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4915",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4916",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4919",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4927",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4934",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4935",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4938",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4942",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4943",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4949",
+      "rows": 611,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4952",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4956",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4958",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4960",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4961",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4967",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4968",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4976",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4977",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4989",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4994",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "4999",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5203",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5215",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5222",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5225",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5234",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5236",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5243",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5244",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5258",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5269",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5285",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5388",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5434",
+      "rows": 844,
+      "last_record": "2026-11-11",
+      "checked_through": "2026-11-12"
+    },
+    {
+      "symbol": "5469",
+      "rows": 842,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "5471",
+      "rows": 842,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "5484",
+      "rows": 842,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6108",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6112",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6115",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6116",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6117",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6120",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6128",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6133",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6136",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6139",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6141",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6142",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6152",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6153",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6155",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6164",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6165",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6166",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6168",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6176",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6183",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6189",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6191",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6192",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6196",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6197",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6201",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6202",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6205",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6206",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6209",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6213",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6214",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6215",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6216",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6224",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6225",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6226",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6230",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6235",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6239",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6243",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6257",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6269",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6271",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6272",
+      "rows": 211,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6277",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6278",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6281",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6282",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6283",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6285",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6405",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6409",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6412",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6414",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6415",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6416",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6426",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6438",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6442",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6443",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6449",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6451",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6456",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6477",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6515",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6525",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6526",
+      "rows": 741,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6531",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6533",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6552",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6558",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6573",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6579",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6591",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6614",
+      "rows": 230,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6658",
+      "rows": 731,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6668",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6669",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6672",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6674",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6689",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6691",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6695",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6698",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6706",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6715",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6719",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6722",
+      "rows": 194,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6742",
+      "rows": 708,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6743",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6756",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6770",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6776",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6781",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6789",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6792",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6799",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6805",
+      "rows": 726,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6830",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6831",
+      "rows": 230,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6834",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6835",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6854",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6862",
+      "rows": 496,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6863",
+      "rows": 841,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6902",
+      "rows": 807,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6906",
+      "rows": 680,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6908",
+      "rows": 154,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6909",
+      "rows": 359,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6916",
+      "rows": 708,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6921",
+      "rows": 210,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6924",
+      "rows": 468,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6928",
+      "rows": 603,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6933",
+      "rows": 727,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6937",
+      "rows": 703,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "6962",
+      "rows": 473,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "7631",
+      "rows": 521,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "7689",
+      "rows": 71,
+      "last_record": "2026-11-09",
+      "checked_through": "2026-11-10"
+    },
+    {
+      "symbol": "7711",
+      "rows": 233,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7721",
+      "rows": 316,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7722",
+      "rows": 465,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7730",
+      "rows": 244,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7749",
+      "rows": 342,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7765",
+      "rows": 281,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7768",
+      "rows": 125,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7769",
+      "rows": 227,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7788",
+      "rows": 256,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7795",
+      "rows": 193,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7812",
+      "rows": 30,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7822",
+      "rows": 150,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7823",
+      "rows": 179,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "7835",
+      "rows": 72,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8011",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8016",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8021",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8028",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8039",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8045",
+      "rows": 461,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8046",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8070",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8072",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8081",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8101",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8103",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8104",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8105",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8110",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8112",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8114",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8131",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8150",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8162",
+      "rows": 649,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8163",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8201",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8210",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8213",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8215",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8249",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8261",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8271",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8454",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8487",
+      "rows": 636,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "8499",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    },
+    {
+      "symbol": "9912",
+      "rows": 840,
+      "last_record": "2026-11-06",
+      "checked_through": "2026-11-09"
+    }
+  ]
+}
