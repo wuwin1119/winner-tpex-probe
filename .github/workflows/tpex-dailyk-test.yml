@@ -1,0 +1,56 @@
+name: WINNER TPEx Daily K 5 Stocks Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test five TPEx daily K records (read only)
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, sys, urllib.parse, urllib.request
+          from datetime import date
+
+          token = os.environ.get('FINMIND_TOKEN', '').strip()
+          if not token:
+              sys.exit('FAIL: FINMIND_TOKEN missing')
+          target = '2026-11-12'
+          # Five representative TPEx symbols; verify they belong to the target 480-stock roster before production.
+          symbols = ['6148', '3260', '5347', '5483', '6182']
+          good = 0
+          for symbol in symbols:
+              params = urllib.parse.urlencode(dict(dataset='TaiwanStockPrice', data_id=symbol, start_date=target, end_date='2026-11-13', token=token))
+              req = urllib.request.Request('https://api.finmindtrade.com/api/v4/data?' + params, headers={'User-Agent':'WINNER-daily-k-validation/1.0'})
+              try:
+                  with urllib.request.urlopen(req, timeout=35) as resp:
+                      data = json.load(resp)
+                  if data.get('status') != 200 or not isinstance(data.get('data'), list):
+                      raise ValueError('API rejected: ' + str(data.get('msg') or data.get('message') or data.get('status'))[:120])
+                  matches = [r for r in data['data'] if r.get('date') == target and str(r.get('stock_id')) == symbol]
+                  if len(matches) != 1:
+                      raise ValueError('expected one row for target date; got ' + str(len(matches)))
+                  r = matches[0]
+                  fields = ('open', 'max', 'min', 'close', 'Trading_Volume')
+                  for field in fields:
+                      if field not in r: raise ValueError('missing ' + field)
+                      if float(r[field]) < 0: raise ValueError('negative ' + field)
+                  if not (float(r['min']) <= float(r['open']) <= float(r['max']) and float(r['min']) <= float(r['close']) <= float(r['max'])):
+                      raise ValueError('OHLC range mismatch')
+                  print('PASS', symbol, target, 'OHLCV', *(r[k] for k in fields), flush=True)
+                  good += 1
+              except Exception as exc:
+                  print('FAIL', symbol, type(exc).__name__, str(exc)[:180], flush=True)
+          print('SUMMARY', json.dumps({'date': target, 'pass': good, 'total': len(symbols)}), flush=True)
+          if good != len(symbols): sys.exit(1)
+          PY
