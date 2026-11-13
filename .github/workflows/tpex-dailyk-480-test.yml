@@ -1,0 +1,84 @@
+name: WINNER TPEx Daily K 480 Readonly Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check all 480 TPEx symbols without writing D1
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+        run: |
+          python - <<'PYCODE'
+          import csv, io, json, os, sys, time, urllib.parse, urllib.request, urllib.error
+          from datetime import datetime, timedelta
+          from zoneinfo import ZoneInfo
+          from pathlib import Path
+          symbols = """1336 1569 1595 1785 1815 2640 2949 3066 3071 3078 3081 3085 3088 3093 3095 3105 3114 3115 3122 3128 3131 3141 3147 3152 3158 3163 3169 3178 3191 3206 3207 3211 3213 3217 3219 3221 3224 3227 3228 3230 3232 3234 3236 3259 3260 3264 3265 3268 3272 3276 3285 3287 3288 3289 3290 3294 3297 3303 3306 3310 3317 3322 3323 3324 3325 3332 3339 3349 3354 3357 3360 3362 3363 3372 3373 3374 3388 3390 3402 3434 3438 3441 3444 3455 3465 3466 3467 3479 3483 3484 3485 3490 3491 3492 3498 3499 3508 3511 3516 3520 3523 3526 3527 3529 3531 3537 3540 3541 3548 3552 3555 3556 3558 3564 3567 3570 3577 3580 3581 3587 3594 3597 3609 3611 3615 3623 3624 3625 3628 3630 3631 3632 3646 3663 3664 3666 3672 3675 3680 3684 3687 3689 3691 3693 3707 3709 3710 3718 4542 4554 4577 4729 4749 4760 4903 4908 4909 4923 4931 4933 4939 4951 4953 4966 4971 4972 4973 4974 4979 4991 4995 5201 5202 5210 5211 5212 5220 5223 5227 5228 5230 5245 5251 5272 5274 5278 5287 5289 5291 5299 5302 5309 5310 5315 5321 5328 5340 5344 5347 5351 5353 5355 5356 5386 5392 5403 5410 5425 5426 5438 5439 5443 5452 5457 5460 5464 5465 5468 5474 5475 5483 5487 5488 5489 5490 5493 5498 5536 6103 6104 6109 6113 6114 6118 6121 6123 6124 6126 6127 6129 6134 6138 6140 6143 6146 6147 6148 6150 6151 6154 6156 6158 6160 6161 6163 6167 6170 6173 6174 6175 6182 6185 6187 6188 6190 6194 6203 6204 6207 6208 6210 6217 6218 6220 6221 6222 6223 6227 6228 6229 6231 6233 6234 6236 6237 6240 6241 6244 6245 6246 6259 6261 6263 6265 6266 6270 6274 6275 6276 6279 6284 6290 6291 6292 6411 6417 6418 6419 6423 6432 6435 6441 6462 6465 6470 6474 6485 6486 6488 6494 6498 6510 6512 6516 6517 6530 6532 6538 6546 6548 6556 6560 6561 6568 6570 6577 6584 6588 6590 6593 6597 6613 6640 6642 6643 6651 6654 6664 6667 6679 6680 6683 6684 6690 6693 6697 6708 6716 6720 6725 6727 6732 6735 6739 6741 6751 6752 6761 6763 6788 6791 6811 6821 6823 6829 6840 6855 6859 6865 6870 6874 6877 6884 6895 6899 6903 6907 6910 6913 6922 6925 6953 6967 6983 6996 6997 7402 7547 7556 7703 7704 7712 7714 7717 7728 7734 7738 7744 7747 7751 7753 7767 7770 7772 7792 7805 7810 7819 7825 7828 7839 7856 8024 8032 8034 8038 8040 8042 8043 8044 8047 8048 8049 8050 8054 8059 8064 8067 8068 8069 8071 8074 8076 8084 8085 8086 8088 8089 8091 8092 8093 8096 8097 8099 8102 8109 8111 8121 8147 8155 8176 8182 8227 8234 8240 8272 8277 8284 8289 8291 8299 8358 8383 8410 8416 8431 8455 8472 8477 8932""".split()
+          assert len(symbols)==480 and len(set(symbols))==480
+          token=os.environ.get('FINMIND_TOKEN','').strip()
+          if not token: sys.exit('FINMIND_TOKEN missing')
+          today=datetime.now(ZoneInfo('Asia/Taipei')).date()
+          target=today-timedelta(days=1)
+          while target.weekday()>=5: target-=timedelta(days=1)
+          target=target.isoformat()
+          results=[]
+          halt=False
+          for i,symbol in enumerate(symbols,1):
+              if halt: break
+              params=urllib.parse.urlencode(dict(dataset='TaiwanStockPrice',data_id=symbol,start_date=target,end_date=target,token=token))
+              url='https://api.finmindtrade.com/api/v4/data?'+params
+              try:
+                  req=urllib.request.Request(url,headers={'User-Agent':'WINNER-TPEx-480-audit/1.0'})
+                  with urllib.request.urlopen(req,timeout=30) as r:
+                      payload=json.load(r)
+                  status=payload.get('status')
+                  if status!=200 or not isinstance(payload.get('data'),list):
+                      msg=str(payload.get('msg') or payload.get('message') or status)[:120]
+                      results.append(dict(symbol=symbol,status='API_ERROR',detail=msg))
+                      print('STOP API_ERROR',symbol,msg,flush=True)
+                      halt=True
+                      continue
+                  rows=[r for r in payload['data'] if str(r.get('stock_id'))==symbol and str(r.get('date'))==target]
+                  if len(rows)==0:
+                      results.append(dict(symbol=symbol,status='NO_DATA',detail='No row for target date'))
+                  elif len(rows)!=1:
+                      results.append(dict(symbol=symbol,status='INVALID',detail='Multiple same-date rows'))
+                  else:
+                      r=rows[0]
+                      o,h,l,c,v=[float(r[k]) for k in ('open','max','min','close','Trading_Volume')]
+                      if not (0<=l<=o<=h and l<=c<=h and v>=0):
+                          raise ValueError('OHLCV invalid')
+                      results.append(dict(symbol=symbol,status='PASS',detail='OHLCV verified'))
+              except (urllib.error.HTTPError,urllib.error.URLError,TimeoutError,ValueError,KeyError,TypeError) as exc:
+                  results.append(dict(symbol=symbol,status='ERROR',detail=(type(exc).__name__+': '+str(exc))[:120]))
+                  print('STOP ERROR',symbol,type(exc).__name__,str(exc)[:120],flush=True)
+                  halt=True
+              if i%25==0: print('PROGRESS',i,'of 480',flush=True)
+              time.sleep(0.6)
+          Path('tpex-audit').mkdir(exist_ok=True)
+          with open('tpex-audit/results.csv','w',encoding='utf-8',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=['symbol','status','detail']);w.writeheader();w.writerows(results)
+          counts={k:sum(r['status']==k for r in results) for k in ('PASS','NO_DATA','INVALID','API_ERROR','ERROR')}
+          summary=dict(target=target,roster=480,attempted=len(results),not_attempted=480-len(results),**counts)
+          Path('tpex-audit/summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+          print('SUMMARY',json.dumps(summary,ensure_ascii=False),flush=True)
+          if len(results)!=480 or counts['PASS']!=480: sys.exit(1)
+          PYCODE
+      - name: Upload audit result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tpex-dailyk-480-audit
+          path: tpex-audit/
+          if-no-files-found: warn
+          retention-days: 30
