@@ -1,0 +1,64 @@
+name: WINNER FinMind GET Diagnosis V2
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Diagnose GET for one stock without exposing token
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, json, urllib.parse, urllib.request, urllib.error
+          token = os.environ.get('FINMIND_TOKEN', '').strip()
+          if not token:
+              raise SystemExit('FAIL: FINMIND_TOKEN is missing')
+          print('TOKEN_PRESENT: YES (hidden)', flush=True)
+          params = {
+              'dataset': 'TaiwanStockShareholding',
+              'data_id': '7711',
+              'start_date': '2026-11-02',
+              'end_date': '2026-11-13',
+              'token': token,
+          }
+          url = 'https://api.finmindtrade.com/api/v4/data?' + urllib.parse.urlencode(params)
+          req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json'}, method='GET')
+          try:
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  status, raw = response.status, response.read(8192)
+          except urllib.error.HTTPError as exc:
+              status, raw = exc.code, exc.read(8192)
+          except Exception as exc:
+              print('NETWORK_ERROR_TYPE:', type(exc).__name__)
+              raise SystemExit(1)
+          print('HTTP_METHOD: GET')
+          print('HTTP_STATUS:', status)
+          try:
+              obj = json.loads(raw.decode('utf-8', 'replace'))
+              if isinstance(obj, dict):
+                  print('API_STATUS:', obj.get('status'))
+                  msg = str(obj.get('msg', ''))
+                  for secret in (token, urllib.parse.quote(token, safe='')):
+                      if secret:
+                          msg = msg.replace(secret, '[REDACTED]')
+                  print('API_MSG:', msg[:500])
+                  rows = obj.get('data')
+                  print('DATA_ROWS:', len(rows) if isinstance(rows, list) else 'N/A')
+              else:
+                  print('RESPONSE_TYPE:', type(obj).__name__)
+          except ValueError:
+              print('RESPONSE: non-JSON (body hidden)')
+          if status != 200:
+              raise SystemExit('GET rejected; see sanitized status/message above')
+          PY
