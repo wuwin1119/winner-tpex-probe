@@ -1,0 +1,47 @@
+name: WINNER FinMind One-Stock Diagnosis
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Diagnose one FinMind request without exposing token
+        env:
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, json, urllib.request, urllib.parse, urllib.error
+          token = os.environ.get('FINMIND_TOKEN','').strip()
+          if not token:
+              raise SystemExit('FAIL: FINMIND_TOKEN secret is missing or empty')
+          print('Secret present: YES (value hidden)')
+          params = {'dataset':'TaiwanStockShareholding', 'data_id':'7711', 'start_date':'2026-11-02', 'end_date':'2026-11-13', 'token':token}
+          req = urllib.request.Request('https://api.finmindtrade.com/api/v4/data', data=urllib.parse.urlencode(params).encode(), headers={'Content-Type':'application/x-www-form-urlencoded','User-Agent':'WINNER-diagnostic/1.0'}, method='POST')
+          try:
+              with urllib.request.urlopen(req,timeout=30) as r:
+                  status=r.status; raw=r.read(4096)
+          except urllib.error.HTTPError as e:
+              status=e.code; raw=e.read(4096)
+          except Exception as e:
+              raise SystemExit('NETWORK_ERROR: '+type(e).__name__)
+          print('HTTP_STATUS:',status)
+          try:
+              obj=json.loads(raw.decode('utf-8','replace'))
+              print('API_STATUS:',obj.get('status'))
+              print('API_MSG:',str(obj.get('msg',''))[:350].replace(token,'[REDACTED]'))
+              data=obj.get('data')
+              print('DATA_ROWS:',len(data) if isinstance(data,list) else 'N/A')
+          except (ValueError,TypeError):
+              print('RESPONSE: not valid JSON (body omitted)')
+          if status!=200: raise SystemExit('FinMind request rejected; see status/message above')
+          PY
