@@ -1,1 +1,56 @@
+name: WINNER D1 Readonly Connection Test
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  d1-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Readonly D1 connectivity and schema test
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          account = os.environ['CF_ACCOUNT_ID']
+          database = os.environ['CF_D1_DATABASE_ID']
+          token = os.environ['CF_API_TOKEN']
+          url = f'https://api.cloudflare.com/client/v4/accounts/{account}/d1/database/{database}/query'
+          # SELECT only. No INSERT/UPDATE/DELETE and no schema modifications.
+          sql = "SELECT name FROM sqlite_master WHERE type='table' AND name='daily_quotes' LIMIT 1"
+          payload = json.dumps({'sql': sql}).encode()
+          request = urllib.request.Request(url, data=payload, headers={
+              'Authorization': f'Bearer {token}',
+              'Content-Type': 'application/json',
+          }, method='POST')
+          try:
+              with urllib.request.urlopen(request, timeout=25) as response:
+                  data = json.load(response)
+          except urllib.error.HTTPError as exc:
+              print(f'D1 HTTP error: {exc.code}')
+              raise SystemExit(1)
+          except Exception as exc:
+              print(f'D1 connection failed: {type(exc).__name__}')
+              raise SystemExit(1)
+          if not data.get('success'):
+              print('D1 API rejected query:', json.dumps(data.get('errors', []), ensure_ascii=False))
+              raise SystemExit(1)
+          results = data.get('result', [])
+          rows = results[0].get('results', []) if results else []
+          if not any(row.get('name') == 'daily_quotes' for row in rows):
+              print('Connected to D1, but daily_quotes table not found')
+              raise SystemExit(1)
+          print('PASS: GitHub Actions connected to Cloudflare D1')
+          print('PASS: daily_quotes exists')
+          print('PASS: SELECT-only verification; no data modified')
+          PY
 
