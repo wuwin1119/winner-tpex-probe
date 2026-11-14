@@ -1,0 +1,60 @@
+name: WINNER D1 TPEx 480 Integrity Readonly
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integrity-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check TPEx securities and industry mapping (SELECT only)
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, json, urllib.request, urllib.error
+          url = f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/d1/database/{os.environ['CF_D1_DATABASE_ID']}/query"
+          def query(sql):
+              request = urllib.request.Request(url, data=json.dumps({'sql':sql}).encode(), headers={'Authorization':'Bearer '+os.environ['CF_API_TOKEN'],'Content-Type':'application/json'}, method='POST')
+              with urllib.request.urlopen(request, timeout=35) as response:
+                  data=json.load(response)
+              if not data.get('success') or not data.get('result'):
+                  raise RuntimeError('D1 query failed: '+json.dumps(data.get('errors',[])))
+              return data['result'][0].get('results',[])
+          def columns(table):
+              return {r['name'] for r in query(f'PRAGMA table_info("{table}")')}
+          sec=columns('securities'); ind=columns('industry_history')
+          for table, cols, needed in [('securities',sec,{'market','symbol'}),('industry_history',ind,{'market','symbol','industry_code','industry_name','valid_from','valid_to'})]:
+              missing=needed-cols
+              if missing: raise RuntimeError(f'{table} missing columns: {sorted(missing)}')
+          # Use the market spelling already confirmed by the prior read-only inspection.
+          market='上櫃'
+          def scalar(sql): return query(sql)[0]['n']
+          count=scalar("SELECT COUNT(*) AS n FROM securities WHERE market='上櫃'")
+          eligible=scalar("SELECT COUNT(*) AS n FROM securities WHERE market='上櫃' AND eligible=1") if 'eligible' in sec else None
+          duplicates=query("SELECT symbol,COUNT(*) AS n FROM securities WHERE market='上櫃' GROUP BY symbol HAVING COUNT(*)>1 LIMIT 20")
+          active_count=scalar("SELECT COUNT(*) AS n FROM industry_history WHERE market='上櫃' AND valid_to IS NULL")
+          active_symbols=scalar("SELECT COUNT(DISTINCT symbol) AS n FROM industry_history WHERE market='上櫃' AND valid_to IS NULL")
+          missing=query("SELECT s.symbol,s.stock_name FROM securities s WHERE s.market='上櫃' AND NOT EXISTS (SELECT 1 FROM industry_history i WHERE i.market=s.market AND i.symbol=s.symbol AND i.valid_to IS NULL) ORDER BY s.symbol LIMIT 30") if 'stock_name' in sec else query("SELECT s.symbol FROM securities s WHERE s.market='上櫃' AND NOT EXISTS (SELECT 1 FROM industry_history i WHERE i.market=s.market AND i.symbol=s.symbol AND i.valid_to IS NULL) ORDER BY s.symbol LIMIT 30")
+          missing_count=scalar("SELECT COUNT(*) AS n FROM securities s WHERE s.market='上櫃' AND NOT EXISTS (SELECT 1 FROM industry_history i WHERE i.market=s.market AND i.symbol=s.symbol AND i.valid_to IS NULL)")
+          multiple=query("SELECT symbol,COUNT(*) AS n FROM industry_history WHERE market='上櫃' AND valid_to IS NULL GROUP BY symbol HAVING COUNT(*)>1 ORDER BY symbol LIMIT 30")
+          orphan_count=scalar("SELECT COUNT(DISTINCT i.symbol) AS n FROM industry_history i WHERE i.market='上櫃' AND i.valid_to IS NULL AND NOT EXISTS (SELECT 1 FROM securities s WHERE s.market=i.market AND s.symbol=i.symbol)")
+          print('MARKET:',market)
+          print('SECURITIES_ROWS:',count)
+          print('ELIGIBLE_ROWS:',eligible if eligible is not None else 'COLUMN_NOT_PRESENT')
+          print('SECURITIES_DUPLICATES:',json.dumps(duplicates,ensure_ascii=False))
+          print('ACTIVE_INDUSTRY_ROWS:',active_count)
+          print('ACTIVE_INDUSTRY_DISTINCT_SYMBOLS:',active_symbols)
+          print('SECURITIES_WITHOUT_ACTIVE_INDUSTRY:',missing_count)
+          print('MISSING_SAMPLE:',json.dumps(missing,ensure_ascii=False))
+          print('MULTIPLE_ACTIVE_INDUSTRIES_SAMPLE:',json.dumps(multiple,ensure_ascii=False))
+          print('ORPHAN_ACTIVE_INDUSTRY_SYMBOLS:',orphan_count)
+          print('PASS: SELECT-only; no data modified')
+          if count!=480 or duplicates or missing_count or multiple or orphan_count:
+              print('NOTICE: Counts or mapping need review; no data modified')
+          PY
