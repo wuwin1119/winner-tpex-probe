@@ -1,0 +1,59 @@
+name: WINNER D1 Industry History Readonly
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  industry-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect industry_history schema and five symbols without writes
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          url = ('https://api.cloudflare.com/client/v4/accounts/' + os.environ['CF_ACCOUNT_ID']
+                 + '/d1/database/' + os.environ['CF_D1_DATABASE_ID'] + '/query')
+          def query(sql):
+              request = urllib.request.Request(url,
+                  data=json.dumps({'sql':sql}).encode('utf-8'),
+                  headers={'Authorization':'Bearer '+os.environ['CF_API_TOKEN'],
+                           'Content-Type':'application/json'},method='POST')
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      result=json.load(response)
+              except urllib.error.HTTPError as exc:
+                  print('FAIL: HTTP',exc.code)
+                  raise SystemExit(1)
+              if not result.get('success') or any(not x.get('success',True) for x in result.get('result',[])):
+                  print('FAIL: D1 query:',json.dumps(result.get('errors',[]),ensure_ascii=False))
+                  raise SystemExit(1)
+              return (result.get('result') or [{}])[0].get('results',[])
+          cols=query('PRAGMA table_info("industry_history")')
+          if not cols:
+              raise SystemExit('FAIL: industry_history not found or has no columns')
+          print('PASS: industry_history schema retrieved')
+          for c in cols:
+              print('COLUMN:',c['name'],'TYPE:',c['type'],'NOT_NULL:',c['notnull'],'PK:',c['pk'])
+          names={c['name'] for c in cols}
+          symbol_col=next((s for s in ('symbol','stock_id','stock_code','code') if s in names),None)
+          if not symbol_col:
+              print('NOTICE: no recognized stock symbol column; skipped row lookup')
+          else:
+              sql=('SELECT * FROM "industry_history" WHERE "'+symbol_col+'" IN '
+                   "('3260','5347','5483','6148','6182') LIMIT 30")
+              rows=query(sql)
+              print('MATCHED_ROWS:',len(rows))
+              for row in rows:
+                  print('ROW:',json.dumps(row,ensure_ascii=False))
+          print('PASS: SELECT-only; no data modified')
+          PY
