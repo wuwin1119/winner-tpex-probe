@@ -1,0 +1,60 @@
+name: WINNER D1 Securities Schema Readonly
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  securities-schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Inspect securities columns and five target stock records (read only)
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, urllib.request, urllib.error
+          url = ('https://api.cloudflare.com/client/v4/accounts/'
+                 + os.environ['CF_ACCOUNT_ID'] + '/d1/database/'
+                 + os.environ['CF_D1_DATABASE_ID'] + '/query')
+          def query(sql):
+              req = urllib.request.Request(
+                  url, data=json.dumps({'sql':sql}).encode(),
+                  headers={'Authorization':'Bearer '+os.environ['CF_API_TOKEN'],
+                           'Content-Type':'application/json'},method='POST')
+              try:
+                  with urllib.request.urlopen(req,timeout=25) as response:
+                      payload=json.load(response)
+              except urllib.error.HTTPError as exc:
+                  print('FAIL: D1 HTTP',exc.code)
+                  raise SystemExit(1)
+              if not payload.get('success'):
+                  print('FAIL: D1 query rejected:',json.dumps(payload.get('errors',[]),ensure_ascii=False))
+                  raise SystemExit(1)
+              return (payload.get('result') or [{}])[0].get('results',[])
+          columns=query('PRAGMA table_info("securities")')
+          if not columns:
+              raise SystemExit('FAIL: securities schema missing')
+          print('PASS: securities schema read only')
+          for c in columns:
+              print('COLUMN:',c['name'],'TYPE:',c['type'],'NOT_NULL:',c['notnull'],'PK:',c['pk'])
+          names={c['name'] for c in columns}
+          candidate=next((c for c in ('symbol','stock_id','stock_code','code') if c in names),None)
+          if not candidate:
+              print('NOTICE: no recognized stock identifier; no row query performed')
+              raise SystemExit(0)
+          symbols=('6148','3260','5347','5483','6182')
+          quoted=','.join("'"+s+"'" for s in symbols)
+          rows=query('SELECT * FROM "securities" WHERE "'+candidate+'" IN ('+quoted+') LIMIT 10')
+          print('MATCHED_ROWS:',len(rows))
+          for row in rows:
+              print('ROW:',json.dumps(row,ensure_ascii=False))
+          print('PASS: no data modified')
+          PY
