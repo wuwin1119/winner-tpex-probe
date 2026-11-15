@@ -1,0 +1,29 @@
+name: WINNER TPEx Daily K Date Coverage Readonly
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check TPEx daily K date coverage (SELECT only)
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import os,json,urllib.request
+          url=f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/d1/database/{os.environ['CF_D1_DATABASE_ID']}/query"
+          sql="""SELECT trade_date,COUNT(DISTINCT symbol) AS stocks,COUNT(*) AS rows FROM daily_quotes WHERE market='上櫃' AND trade_date >= '2023-05-23' GROUP BY trade_date HAVING COUNT(DISTINCT symbol)<480 ORDER BY trade_date"""
+          req=urllib.request.Request(url,data=json.dumps({"sql":sql}).encode(),headers={"Authorization":"Bearer "+os.environ["CF_API_TOKEN"],"Content-Type":"application/json"},method="POST")
+          with urllib.request.urlopen(req,timeout=60) as r: data=json.load(r)
+          if not data.get("success") or any(not x.get("success",True) for x in data.get("result",[])): raise RuntimeError(str(data.get("errors") or data.get("result")))
+          rows=(data.get("result") or [{}])[0].get("results",[])
+          print("NOTE: 480 is current roster benchmark, not proof of historical missing data.")
+          print("DAYS_BELOW_480:",len(rows))
+          for row in rows: print(json.dumps(row,ensure_ascii=False))
+          print("PASS: SELECT-only; no data modified")
+          PY
