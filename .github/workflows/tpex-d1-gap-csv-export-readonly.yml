@@ -1,0 +1,57 @@
+name: WINNER TPEx Gap CSV Export Readonly
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Export candidate missing dates from D1
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,csv,urllib.request,collections
+          url=f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/d1/database/{os.environ['CF_D1_DATABASE_ID']}/query"
+          def query(sql):
+              req=urllib.request.Request(url,data=json.dumps({"sql":sql}).encode(),headers={"Authorization":"Bearer "+os.environ["CF_API_TOKEN"],"Content-Type":"application/json"},method="POST")
+              with urllib.request.urlopen(req,timeout=90) as r: data=json.load(r)
+              if not data.get("success") or any(not x.get("success",True) for x in data.get("result",[])): raise RuntimeError(str(data.get("errors") or data.get("result")))
+              return (data.get("result") or [{}])[0].get("results",[])
+          # One bounded calendar read and one bounded observation read, both SELECT only.
+          calendar=[r["trade_date"] for r in query("""SELECT trade_date FROM daily_quotes WHERE market='上櫃' AND trade_date>='2023-05-23' GROUP BY trade_date HAVING COUNT(DISTINCT symbol)>=300 ORDER BY trade_date""")]
+          idx={d:i for i,d in enumerate(calendar)}
+          # Aggregate per stock to avoid a large Cloudflare API response; fetch in date slices.
+          observations=collections.defaultdict(set)
+          for year in range(2023,2027):
+              rows=query(f"""SELECT symbol,trade_date FROM daily_quotes WHERE market='上櫃' AND trade_date>='{year}-01-01' AND trade_date<'{year+1}-01-01' ORDER BY symbol,trade_date""")
+              for r in rows:
+                  if r["trade_date"] in idx: observations[r["symbol"]].add(idx[r["trade_date"]])
+              print(f"YEAR {year}: {len(rows)} records")
+          gaps=[]
+          for symbol,seen in observations.items():
+              if not seen: continue
+              for i in range(min(seen)+1,max(seen)):
+                  if i not in seen: gaps.append((symbol,calendar[i],"PENDING_OFFICIAL_CHECK"))
+          gaps.sort(key=lambda x:(x[0],x[1]))
+          with open("winner_tpex_gap_candidates.csv","w",newline="",encoding="utf-8-sig") as f:
+              w=csv.writer(f);w.writerow(["symbol","trade_date","status"]);w.writerows(gaps)
+          counts=collections.Counter(r[0] for r in gaps)
+          with open("winner_tpex_gap_summary.csv","w",newline="",encoding="utf-8-sig") as f:
+              w=csv.writer(f);w.writerow(["symbol","candidate_missing_days"]);w.writerows(sorted(counts.items(),key=lambda x:(-x[1],x[0])))
+          print(f"CALENDAR_DAYS={len(calendar)} CANDIDATES={len(gaps)} SYMBOLS={len(counts)}")
+          print("Candidate gaps are NOT verified missing records. No database changes.")
+          PY
+      - name: Upload CSV report
+        uses: actions/upload-artifact@v4
+        with:
+          name: WINNER-TPEx-gap-report
+          path: |
+            winner_tpex_gap_candidates.csv
+            winner_tpex_gap_summary.csv
+          retention-days: 30
