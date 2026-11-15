@@ -1,0 +1,60 @@
+name: WINNER TPEx Internal Daily K Gaps Readonly
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  internal-gaps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Detect internal gaps without changing D1
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,urllib.request
+          url=f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/d1/database/{os.environ['CF_D1_DATABASE_ID']}/query"
+          def query(sql):
+              req=urllib.request.Request(url,data=json.dumps({"sql":sql}).encode(),headers={"Authorization":"Bearer "+os.environ["CF_API_TOKEN"],"Content-Type":"application/json"},method="POST")
+              with urllib.request.urlopen(req,timeout=90) as r: d=json.load(r)
+              if not d.get("success") or any(not x.get("success",True) for x in d.get("result",[])): raise RuntimeError(json.dumps(d.get("errors") or d.get("result"),ensure_ascii=False))
+              return (d.get("result") or [{}])[0].get("results",[])
+          # Reference trading dates are those on which >= 300 of the 480 current symbols have D1 rows.
+          # This avoids isolated nontrading-date uploads from becoming calendar dates.
+          # Gaps are measured only between a stock's first and last observed D1 dates.
+          # A gap is a CANDIDATE, not proof of missing official data.
+          base="""
+          WITH calendar AS (
+            SELECT trade_date, ROW_NUMBER() OVER (ORDER BY trade_date) AS rn
+            FROM (
+              SELECT trade_date FROM daily_quotes
+              WHERE market='上櫃' AND trade_date >= '2023-05-23'
+              GROUP BY trade_date HAVING COUNT(DISTINCT symbol)>=300
+            )
+          ),
+          observations AS (
+            SELECT q.symbol,c.trade_date,c.rn
+            FROM daily_quotes q JOIN calendar c ON c.trade_date=q.trade_date
+            WHERE q.market='上櫃'
+          ),
+          gaps AS (
+            SELECT symbol, LAG(trade_date) OVER (PARTITION BY symbol ORDER BY rn) AS previous_date,
+                   trade_date AS next_date,
+                   rn-LAG(rn) OVER (PARTITION BY symbol ORDER BY rn)-1 AS missing_days
+            FROM observations
+          )
+          """
+          summary=base+"""SELECT COUNT(*) AS gap_intervals,COALESCE(SUM(missing_days),0) AS missing_stock_days,COUNT(DISTINCT symbol) AS affected_symbols FROM gaps WHERE missing_days>0"""
+          top=base+"""SELECT symbol,COUNT(*) AS intervals,SUM(missing_days) AS missing_days FROM gaps WHERE missing_days>0 GROUP BY symbol ORDER BY missing_days DESC,symbol LIMIT 60"""
+          intervals=base+"""SELECT symbol,previous_date,next_date,missing_days FROM gaps WHERE missing_days>0 ORDER BY missing_days DESC,symbol LIMIT 80"""
+          print('METHOD: gaps strictly between first/last observed D1 dates, calendar dates with >=300 symbols')
+          print('IMPORTANT: candidates only; IPO dates, suspensions and official history still require verification')
+          print('SUMMARY:',json.dumps(query(summary),ensure_ascii=False))
+          print('TOP_STOCKS:',json.dumps(query(top),ensure_ascii=False))
+          print('LARGEST_GAPS:',json.dumps(query(intervals),ensure_ascii=False))
+          print('PASS: SELECT-only, no data modified')
+          PY
