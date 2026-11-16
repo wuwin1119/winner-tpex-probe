@@ -1,0 +1,76 @@
+name: WINNER TPEx Verify All Candidate Gaps Official
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/tpex-official-verify-all.yml
+permissions:
+  contents: read
+  actions: read
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download latest existing D1 candidate report
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          run_id=$(gh run list --workflow tpex-d1-gap-csv-export-readonly.yml --status success --limit 1 --json databaseId --jq '.[0].databaseId')
+          test -n "$run_id"
+          gh run download "$run_id" -n WINNER-TPEx-gap-report -D .
+          test -s winner_tpex_gap_candidates.csv
+      - name: Verify official TPEx daily prices by date
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARDS: 12
+        run: python3 scripts/tpex_official_gap_verify.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: official-check-part-${{ matrix.shard }}
+          path: results/part-*.csv
+          retention-days: 30
+  merge:
+    needs: verify
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: official-check-part-*
+          path: parts
+          merge-multiple: true
+      - name: Merge verified results and flag incomplete runs
+        run: |
+          python3 - <<'PY'
+          import csv,glob,collections,os
+          paths=glob.glob('parts/part-*.csv')
+          data=[]
+          for p in paths:
+              with open(p,encoding='utf-8-sig') as f:data.extend(csv.DictReader(f))
+          data.sort(key=lambda r:(r['symbol'],r['trade_date']))
+          with open('WINNER_TPEx_official_gap_audit.csv','w',encoding='utf-8-sig',newline='') as f:
+              w=csv.DictWriter(f,fieldnames=['symbol','trade_date','status','source','note']);w.writeheader();w.writerows(data)
+          counts=collections.Counter(r['status'] for r in data)
+          with open('WINNER_TPEx_official_gap_summary.txt','w',encoding='utf-8') as f:
+              f.write(f'Parts completed: {len(paths)}/12\nRecords checked: {len(data)}/3292\n')
+              for k,v in sorted(counts.items()):f.write(f'{k}: {v}\n')
+              f.write('OFFICIAL_NO_ROW_REASON_UNVERIFIED requires separate suspension/no-trade verification. No D1 writes.\n')
+          print(open('WINNER_TPEx_official_gap_summary.txt').read())
+          if len(paths)!=12 or len(data)!=3292:raise SystemExit('INCOMPLETE: rerun failed shards before treating report as complete')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: WINNER-TPEx-official-audit
+          path: |
+            WINNER_TPEx_official_gap_audit.csv
+            WINNER_TPEx_official_gap_summary.txt
+          retention-days: 30
