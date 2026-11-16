@@ -1,0 +1,46 @@
+name: WINNER D1 Four Data Streams Audit Readonly
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Inventory turnover TOP300 TOP50 minute and index tables
+        env:
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+          CF_D1_DATABASE_ID: ${{ secrets.CF_D1_DATABASE_ID }}
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os,json,urllib.request,re
+          url=f"https://api.cloudflare.com/client/v4/accounts/{os.environ['CF_ACCOUNT_ID']}/d1/database/{os.environ['CF_D1_DATABASE_ID']}/query"
+          def query(sql):
+              req=urllib.request.Request(url,data=json.dumps({"sql":sql}).encode(),headers={"Authorization":"Bearer "+os.environ["CF_API_TOKEN"],"Content-Type":"application/json"},method="POST")
+              with urllib.request.urlopen(req,timeout=70) as resp: obj=json.load(resp)
+              if not obj.get("success") or any(not x.get("success",True) for x in obj.get("result",[])):raise RuntimeError(str(obj.get("errors") or obj.get("result")))
+              return (obj.get("result") or [{}])[0].get("results",[])
+          tables=query("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name")
+          print("ALL_TABLES:",json.dumps([r["name"] for r in tables],ensure_ascii=False))
+          keywords=("turnover","top","minute","min1","1m","index","market","daily","quote","kline","candl","rank","share","intraday","tick")
+          for item in tables:
+              name=item["name"]
+              if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*",name):continue
+              cols=query(f'PRAGMA table_info("{name}")')
+              names=[r["name"] for r in cols]
+              relevant=any(k in name.lower() for k in keywords) or any(k in c.lower() for c in ("turnover_rate","minute_time","rank","index_code"))
+              if not relevant:continue
+              print("TABLE:",name,"COLUMNS:",json.dumps(names,ensure_ascii=False))
+              summary=query(f'SELECT COUNT(*) AS rows FROM "{name}"')
+              print("ROWS:",json.dumps(summary,ensure_ascii=False))
+              datecol=next((c for c in ("trade_date","date","trading_date","quote_date","datetime","timestamp","bar_time") if c in names),None)
+              if datecol:
+                  print("DATE_RANGE:",json.dumps(query(f'SELECT MIN("{datecol}") AS first_date,MAX("{datecol}") AS last_date FROM "{name}"'),ensure_ascii=False))
+              marketcol=next((c for c in ("market","market_type") if c in names),None)
+              if marketcol:
+                  print("MARKET_BREAKDOWN:",json.dumps(query(f'SELECT "{marketcol}" AS market,COUNT(*) AS rows FROM "{name}" GROUP BY "{marketcol}" ORDER BY rows DESC LIMIT 12'),ensure_ascii=False))
+          print("AUDIT_DONE: SELECT and PRAGMA only; no D1 data modified")
+          PY
